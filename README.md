@@ -32,3 +32,7 @@ Na secção Requisições, pesquisar por várias palavras em qualquer ordem, sem
 O workflow `.github/workflows/ios.yml` compila para **iPhone físico** (`iphoneos`), empacota `Payload/App.app` e disponibiliza um `.ipa` **sem assinatura** nos Artifacts da execução GitHub Actions. Não é um IPA pronto a instalar diretamente: exige assinatura por uma ferramenta compatível (por exemplo, SideStore/AltStore/Sideloadly) e conta Apple, sujeito às limitações de assinatura gratuita. Não há garantia de instalação em todos os dispositivos.
 
 GitHub > Actions > **iOS IPA (sem assinatura)** > Run workflow > Artifacts. Descarregar o ZIP do artifact, extrair o IPA e assinar/instalar com a ferramenta escolhida.
+
+
+## Correção iOS V4.3
+O workflow instala CocoaPods com `pod install --repo-update` em `ios/App` e compila `ios/App/App.xcworkspace` em vez de `App.xcodeproj`, para resolver o erro `unable to resolve module dependency: Capacitor`. O IPA é **não assinado** e necessita de assinatura para instalação. A compilação só pode ser validada no runner macOS do GitHub Actions.
