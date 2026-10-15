@@ -1,0 +1,1 @@
+const CACHE='rjp-req-v4';const ASSETS=['./','./index.html','./export-v4.js','./modelo-original.xlsm'];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))});

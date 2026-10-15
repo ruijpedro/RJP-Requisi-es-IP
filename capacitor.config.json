@@ -1,0 +1,8 @@
+{
+  "appId": "pt.rjp.requisicoes",
+  "appName": "RJP Requisi\u00e7\u00f5es IP",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
