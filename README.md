@@ -25,3 +25,10 @@ Este é um projeto inicial pronto para carregar no GitHub, **não uma APK/IPA j�
 ## V4.1 — Pesquisa por palavras
 
 Na secção Requisições, pesquisar por várias palavras em qualquer ordem, sem acentos ou distinção de maiúsculas. A pesquisa abrange dados gerais e códigos/designações dos artigos de cada requisição. Inclui contador de resultados e botão para limpar. No editor, a pesquisa do catálogo LPU também aceita várias palavras. Tudo funciona localmente/offline.
+
+
+## iOS V4.2 — IPA sem assinatura
+
+O workflow `.github/workflows/ios.yml` compila para **iPhone físico** (`iphoneos`), empacota `Payload/App.app` e disponibiliza um `.ipa` **sem assinatura** nos Artifacts da execução GitHub Actions. Não é um IPA pronto a instalar diretamente: exige assinatura por uma ferramenta compatível (por exemplo, SideStore/AltStore/Sideloadly) e conta Apple, sujeito às limitações de assinatura gratuita. Não há garantia de instalação em todos os dispositivos.
+
+GitHub > Actions > **iOS IPA (sem assinatura)** > Run workflow > Artifacts. Descarregar o ZIP do artifact, extrair o IPA e assinar/instalar com a ferramenta escolhida.
