@@ -1,16 +1,52 @@
-name: iOS Build (sem assinatura)
+name: iOS IPA (sem assinatura)
+
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
+
 jobs:
-  ios:
+  ios-ipa:
     runs-on: macos-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install
-      - run: npm run build
-      - run: npx cap add ios
-      - run: npx cap sync ios
-      - run: xcodebuild -workspace ios/App/App.xcworkspace -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+      - name: Instalar dependências
+        run: npm install
+      - name: Compilar WebApp
+        run: npm run build
+      - name: Criar projeto iOS
+        run: |
+          npx cap add ios
+          npx cap sync ios
+      - name: Compilar aplicação para iPhone (sem assinatura)
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/ios-build" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+      - name: Empacotar IPA sem assinatura
+        run: |
+          APP="$RUNNER_TEMP/ios-build/Build/Products/Release-iphoneos/App.app"
+          test -d "$APP"
+          mkdir -p "$RUNNER_TEMP/ipa/Payload" artifacts
+          cp -R "$APP" "$RUNNER_TEMP/ipa/Payload/App.app"
+          cd "$RUNNER_TEMP/ipa"
+          /usr/bin/zip -qry "$GITHUB_WORKSPACE/artifacts/RJP-Requisicoes-IP-V4.2-unsigned.ipa" Payload
+          ls -lh "$GITHUB_WORKSPACE/artifacts/"
+      - name: Disponibilizar IPA para download
+        uses: actions/upload-artifact@v4
+        with:
+          name: RJP-Requisicoes-IP-iOS-IPA-sem-assinatura
+          path: artifacts/*.ipa
+          if-no-files-found: error
+          retention-days: 30
