@@ -21,3 +21,7 @@ Projeto único para **WebApp/PWA**, **Android APK** e **iOS**, baseado na aplica
 
 ## Limitações a validar
 Este é um projeto inicial pronto para carregar no GitHub, **não uma APK/IPA já compilada**. O Excel replica a folha base do modelo original, não garante equivalência total de macros, ligações externas e regras avançadas. Testar o documento com requisições reais antes de utilização operacional.
+
+## V4.1 — Pesquisa por palavras
+
+Na secção Requisições, pesquisar por várias palavras em qualquer ordem, sem acentos ou distinção de maiúsculas. A pesquisa abrange dados gerais e códigos/designações dos artigos de cada requisição. Inclui contador de resultados e botão para limpar. No editor, a pesquisa do catálogo LPU também aceita várias palavras. Tudo funciona localmente/offline.
