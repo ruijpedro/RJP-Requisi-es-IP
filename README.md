@@ -36,3 +36,7 @@ GitHub > Actions > **iOS IPA (sem assinatura)** > Run workflow > Artifacts. Desc
 
 ## Correção iOS V4.3
 O workflow instala CocoaPods com `pod install --repo-update` em `ios/App` e compila `ios/App/App.xcworkspace` em vez de `App.xcodeproj`, para resolver o erro `unable to resolve module dependency: Capacitor`. O IPA é **não assinado** e necessita de assinatura para instalação. A compilação só pode ser validada no runner macOS do GitHub Actions.
+
+
+## V4.4 — Ícone IP no telemóvel
+Ícone gerado a partir do logótipo oficial da IP mostrado pelo utilizador na captura de ecrã. Inclui imagens para iOS, Android e PWA. Os workflows aplicam automaticamente os ícones após a criação do projeto Capacitor. O IPA continua sem assinatura e necessita de assinatura para instalação.
