@@ -23,6 +23,8 @@ jobs:
         run: |
           npx cap add ios
           npx cap sync ios
+      - name: Aplicar ícone oficial da IP
+        run: python3 scripts/apply_icons.py
       - name: Instalar CocoaPods e dependências iOS
         run: |
           cd ios/App

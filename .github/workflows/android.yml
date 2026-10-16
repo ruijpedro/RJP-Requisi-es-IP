@@ -35,6 +35,8 @@ jobs:
         run: npx cap add android
       - name: Sincronizar Android
         run: npx cap sync android
+      - name: Aplicar ícone oficial da IP
+        run: python3 scripts/apply_icons.py
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Compilar APK de teste
