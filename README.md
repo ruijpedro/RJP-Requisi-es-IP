@@ -40,3 +40,7 @@ O workflow instala CocoaPods com `pod install --repo-update` em `ios/App` e comp
 
 ## V4.4 — Ícone IP no telemóvel
 Ícone gerado a partir do logótipo oficial da IP mostrado pelo utilizador na captura de ecrã. Inclui imagens para iOS, Android e PWA. Os workflows aplicam automaticamente os ícones após a criação do projeto Capacitor. O IPA continua sem assinatura e necessita de assinatura para instalação.
+
+
+## V4.5 — correção ortográfica
+Corrigida no catálogo de tipos de ação a expressão «Tipo de intervcenção / ação:» para «Tipo de intervenção / ação:» em `www/index.html`.
