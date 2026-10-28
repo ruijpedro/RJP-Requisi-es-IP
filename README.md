@@ -44,3 +44,20 @@ O workflow instala CocoaPods com `pod install --repo-update` em `ios/App` e comp
 
 ## V4.5 — correção ortográfica
 Corrigida no catálogo de tipos de ação a expressão «Tipo de intervcenção / ação:» para «Tipo de intervenção / ação:» em `www/index.html`.
+
+
+## V4.7
+- Centros de Custo configuráveis: Caldas da Rainha, Coimbra, Guarda e Entroncamento; permite adicionar Aveiro, Porto e outros.
+- Créditos: Rui Jorge Pedro e Abílio Felix.
+- PDF A4 multipágina, com acentuação portuguesa, artigos, valores e total, para guardar/partilhar/imprimir.
+- Numeração sequencial continua **local por instalação**. Não utilizar em simultâneo em dispositivos diferentes como numeração contratual definitiva sem backend central.
+- A impressão iOS/Android depende do visualizador PDF do dispositivo.
+- Os dados ficam no armazenamento local: exporte cópias de segurança.
+
+
+## V4.8 — Rascunhos
+- Guardar rascunhos incompletos, mesmo sem Centro de Custo, data ou artigos.
+- Reabrir e continuar a editar pelo histórico.
+- Número da requisição editável manualmente; atribuição automática ao finalizar se ficar vazio.
+- Mensagem explícita se o armazenamento local falhar.
+- A numeração e os dados permanecem locais a cada dispositivo; faça cópias de segurança antes de reinstalar.
